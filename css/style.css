@@ -1,0 +1,79 @@
+/* ===== Variabel warna (konsisten di semua halaman) ===== */
+:root {
+  --biru-tua: #0a1f5c;
+  --biru-tengah: #1e5fc4;
+  --biru-muda: #7fc4ff;
+  --teks: #ffffff;
+  --navbar-bg: rgba(10, 31, 92, 0.92);
+  --garis: rgba(255, 255, 255, 0.25);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--teks);
+  line-height: 1.6;
+  background: linear-gradient(160deg, var(--biru-tua) 0%, var(--biru-tengah) 55%, var(--biru-muda) 100%);
+  background-attachment: fixed;
+}
+
+a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--teks); outline-offset: 2px; }
+
+/* ===== Navbar ===== */
+.navbar { position: sticky; top: 0; z-index: 100; background: var(--navbar-bg); border-bottom: 1px solid var(--garis); }
+.nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 20px; min-height: 64px; display: flex; align-items: center; justify-content: space-between; }
+.brand { font-weight: 700; letter-spacing: 1px; }
+.menu, .sub { list-style: none; }
+.menu { display: flex; gap: 8px; }
+.menu a { display: block; padding: 20px 14px; }
+.menu a:hover, .menu a[aria-current="page"] { color: var(--biru-muda); }
+.has-sub { position: relative; display: flex; align-items: center; }
+.nav-toggle, .sub-toggle { background: none; border: 0; color: var(--teks); font-size: 1.1rem; cursor: pointer; }
+.nav-toggle { display: none; padding: 8px; }
+.sub-toggle { display: none; }
+
+/* Dropdown desktop */
+.sub { position: absolute; top: 100%; left: 0; min-width: 220px; background: var(--navbar-bg); border: 1px solid var(--garis);
+  opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity .25s ease, transform .25s ease, visibility .25s; }
+.sub a { padding: 12px 16px; }
+.sub .has-sub { display: block; }
+.sub-level2 { top: 0; left: 100%; }
+.has-sub:hover > .sub, .has-sub:focus-within > .sub { opacity: 1; visibility: visible; transform: none; }
+
+/* ===== Konten ===== */
+.container { max-width: 1100px; margin: 0 auto; padding: 64px 20px; }
+h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 16px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 32px; }
+.card { display: block; padding: 28px 20px; border: 1px solid var(--garis); background: rgba(10, 31, 92, 0.35); font-weight: 600; transition: background .25s ease; }
+a.card:hover { background: rgba(10, 31, 92, 0.6); }
+.card-slot { border-style: dashed; font-weight: 400; opacity: .8; }
+
+/* ===== Animasi on-screen ===== */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.show { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .sub { transition: none; }
+}
+
+/* ===== Seluler ===== */
+@media (max-width: 860px) {
+  .nav-toggle { display: block; }
+  #menu { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--navbar-bg); border-bottom: 1px solid var(--garis); max-height: calc(100vh - 64px); overflow-y: auto; }
+  #menu.open { display: block; }
+  .menu { flex-direction: column; gap: 0; }
+  .menu a { padding: 14px 20px; }
+  .has-sub { flex-wrap: wrap; }
+  .has-sub > a { flex: 1; }
+  .sub-toggle { display: block; padding: 14px 20px; }
+  .sub, .sub-level2 { position: static; display: none; width: 100%; opacity: 1; visibility: visible; transform: none; border: 0; background: rgba(255,255,255,.06); }
+  .has-sub.open > .sub { display: block; }
+  .sub a { padding-left: 36px; }
+  .sub-level2 a { padding-left: 52px; }
+  .has-sub:hover > .sub, .has-sub:focus-within > .sub { display: none; }
+  .has-sub.open > .sub { display: block !important; }
+}
