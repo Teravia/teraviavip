@@ -77,3 +77,11 @@ a.card:hover { background: rgba(10, 31, 92, 0.6); }
   .has-sub:hover > .sub, .has-sub:focus-within > .sub { display: none; }
   .has-sub.open > .sub { display: block !important; }
 }
+
+/* ===== Konten HOME ===== */
+h2 { font-size: clamp(1.3rem, 3vw, 1.8rem); margin: 32px 0 12px; }
+.container > p { max-width: 70ch; margin-bottom: 16px; }
+.points { list-style: none; max-width: 70ch; margin-bottom: 24px; }
+.points li { padding: 12px 0 12px 20px; border-left: 3px solid var(--biru-muda); margin-bottom: 12px; }
+.btn { display: inline-block; padding: 14px 28px; border: 2px solid var(--teks); font-weight: 600; transition: background .25s ease, color .25s ease; }
+.btn:hover { background: var(--teks); color: var(--biru-tua); }
