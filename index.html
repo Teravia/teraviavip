@@ -5,8 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>HOME | NAMA SITUS</title>
   <link rel="stylesheet" href="css/style.css">
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'ID_PIXEL_ANDA');
+    fbq('track', 'PageView');
+  </script>
+  <!-- End Meta Pixel Code -->
 </head>
 <body>
+  <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=ID_PIXEL_ANDA&ev=PageView&noscript=1"></noscript>
 <header class="navbar">
   <div class="nav-inner">
     <a class="brand" href="index.html">NAMA SITUS</a>
@@ -21,10 +36,10 @@
             <li class="has-sub">
               <a href="jual-beli.html">JUAL BELI</a><button class="sub-toggle" aria-label="Buka submenu JUAL BELI">&#9662;</button>
               <ul class="sub sub-level2">
-            <li><a href="properti.html">Properti</a></li>
-            <li><a href="gadget.html">GADGET</a></li>
-            <li><a href="otomotif.html">OTOMOTIF</a></li>
-            <li><a href="fashion.html">FASHION</a></li>
+                <li><a href="properti.html">Properti</a></li>
+                <li><a href="gadget.html">GADGET</a></li>
+                <li><a href="otomotif.html">OTOMOTIF</a></li>
+                <li><a href="fashion.html">FASHION</a></li>
                 <!-- TAMBAHKAN KATEGORI JUAL BELI BARU DI SINI: <li><a href="nama-halaman.html">NAMA</a></li> -->
               </ul>
             </li>
@@ -39,8 +54,15 @@
   </div>
 </header>
   <main class="container">
-    <h1 class="reveal">HOME</h1>
-    <p class="reveal">Konten halaman HOME akan diisi di sini.</p>
+    <h1 class="reveal">Detail Produk</h1>
+    <p class="reveal">Pilih kategori produk untuk melihat detailnya.</p>
+    <div class="cards">
+      <a class="card reveal" href="properti.html">Properti</a>
+      <a class="card reveal" href="gadget.html">GADGET</a>
+      <a class="card reveal" href="otomotif.html">OTOMOTIF</a>
+      <a class="card reveal" href="fashion.html">FASHION</a>
+      <!-- TAMBAHKAN KARTU KATEGORI BARU DI SINI: <a class="card reveal" href="nama-halaman.html">NAMA</a> -->
+    </div>
   </main>
   <script src="js/script.js"></script>
 </body>
